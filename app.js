@@ -1,42 +1,38 @@
-function calculator() {
-    this.operations = {
-        "-": (a, b) => a - b,
-        "+": (a, b) => a + b,
-        "*": (a, b) => a * b,
-        "/": (a, b) => a / b
-    }; 
+let firstNumber = null;
+let operator = null;
+let secondNumber = null;
+let displayValue = '0';
 
-    this.operate = function(str) { 
-        const split = str.split(" "),
-        a = +split[0],
-        op = split[1],
-        b = +split[2]
-    
-        if (!this.methods[op] || isNaN(a) || isNaN(b)) {
-            return NaN;
-        }
-
-        return this.methods[op](a, b);
-    }  
+function add(a, b) {
+    return a + b;
 }
 
-const display = document.querySelector(".display");
-const buttons = [...document.querySelectorAll("operands-btn")];
-// const values = buttons.map(button => button.textContent)
+function subtract(a, b) {
+    return a - b;
+}
+
+function multiply(a, b) {
+    return a * b;
+}
+
+function divide(a, b) {
+    return a / b;
+}
+
+function operate(operator, firstNumber, secondNumber) {
+    if (operator === "+") {return add(firstNumber, secondNumber)}
+    else if (operator === "-") {return subtract(firstNumber, secondNumber)}
+    else if (operator === "*") {return multiply(firstNumber, secondNumber)}
+    else if (operator === "/") {return divide(firstNumber, secondNumber)}
+};
+
+const display = document.getElementById("display");
+const buttons = document.querySelectorAll(".btn");
 
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
-        
+        display.innerText += button.innerText;
+        displayValue = display.innerText;
+        console.log(displayValue)
     })
 })
-
-
-// document.querySelectorAll('.operands-btn').forEach(el =>{
-//     el.addEventListener('click', () =>{
-//       digit_pressed(el.textContent);
-//     });
-//   });
-//   function digit_pressed(digit) {
-//     console.log(digit);
-//   }
-
