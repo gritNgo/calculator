@@ -9,20 +9,20 @@ body {
     flex-direction: column;
 }
 
-.numbers {
+.operands {
 }
 
-.numbers-btn {
+.operands-btn {
     width: 70px;
     height: 40px;
 }
 
-.ops {
+.operators {
     display: flex;
     flex-direction: column;
 }
 
-.ops-btn {
+.operators-btn {
     width: 60px;
     height: 40px;
 }
