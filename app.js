@@ -1,7 +1,7 @@
-let firstNumber = null;
-let operator = null;
-let secondNumber = null;
-let displayValue = '0';
+let operandOne = '';
+let operator = '';
+let operandTwo = '';
+let displayValue = 0;
 
 function add(a, b) {
     return a + b;
@@ -19,11 +19,11 @@ function divide(a, b) {
     return a / b;
 }
 
-function operate(operator, firstNumber, secondNumber) {
-    if (operator === "+") {return add(firstNumber, secondNumber)}
-    else if (operator === "-") {return subtract(firstNumber, secondNumber)}
-    else if (operator === "*") {return multiply(firstNumber, secondNumber)}
-    else if (operator === "/") {return divide(firstNumber, secondNumber)}
+function operate(op, a, b) {
+    if (op === "+") {return add(a, b)}
+    else if (op === "-") {return subtract(a, b)}
+    else if (op === "*") {return multiply(a, b)}
+    else if (op === "/") {return divide(a, b)}
 };
 
 const display = document.getElementById("display");
@@ -31,8 +31,19 @@ const buttons = document.querySelectorAll(".btn");
 
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
-        display.innerText += button.innerText;
-        displayValue = display.innerText;
-        console.log(displayValue)
+        if (button.innerText >= 0 || button.innerText <= 9) {
+            display.innerText += button.innerText;
+            displayValue = display.innerText;
+            operandOne = displayValue;
+            console.log(operandOne)
+            
+            if (button.innerText === '+' || button.innerText === '-' || 
+            button.innerText === '*' || button.innerText === '/') {
+                display.innerText += button.innerText;
+                displayValue = display.innerText;
+                operator = displayValue;
+                console.log(operator)
+            }
+        }
     })
 })
