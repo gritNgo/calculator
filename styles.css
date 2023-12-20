@@ -15,10 +15,25 @@
     display: flex;
     flex-wrap: wrap;
     width: 150px;
-    height: 200px;
+    height: 150px;
 }
 
-.btn {
+.operator {
+    width: 30px;
+    height: 30px;
+}
+
+.operand {
+    width: 30px;
+    height: 30px;
+}
+
+.clear {
+    width: 30px;
+    height: 30px;
+}
+
+.equals {
     width: 30px;
     height: 30px;
 }
